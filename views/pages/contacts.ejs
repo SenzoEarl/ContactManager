@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+    <%- include('../partials/header'); %>
+</header>
+
+<main>
+    <div class="jumbotron">
+        <h1>Contacts</h1>
+        <p>These are all your contacts</p>
+        <ul>
+            <% Array.from(contacts).forEach(function(contact) { %>
+                <li> <%= contact.surname %>
+                    <strong><%= contact.name %></strong>
+                    <span> Cell: <%= contact.cell %></span>,
+                    Email: <%= contact.email%>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+</main>
+
+<footer>
+    <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>

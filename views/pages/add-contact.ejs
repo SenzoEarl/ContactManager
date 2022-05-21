@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+    <%- include('../partials/header'); %>
+
+</header>
+
+<main>
+    <div class="jumbotron">
+        <h1>Add Contact:</h1>
+        <p>Add a new contact</p>
+        <p></p>
+        <form method="post" action="/contacts/add">
+            <label id="name-label" for="name" class="form">Name</label>
+            <input id="name" name="name" type="text" placeholder="John" class="form-control">
+            <label id="surname-label" for="surname" class="form">Surname</label>
+            <input id="surname" name="surname" type="text" placeholder="Smith" class="form-control">
+            <label id="username-label" for="username" class="form">Username</label>
+            <input id="username" name="username" type="text" placeholder="Joyboy" class="form-control">
+            <label id="password-label" for="password" class="form">Password</label>
+            <input id="password" name="password" type="password" class="form-control">
+            <label id="password-confirm-label" for="password-confirm" class="form">Confirm Password</label>
+            <input id="password-confirm" name="password-confirm" type="password" placeholder="" class="form-control">
+            <label id="email-label" for="email" class="form">Email Address</label>
+            <input id="email" name="email" type="email" placeholder="someone@domain.ext" class="form-control">
+            <label id="home-label" for="home" class="form">Home Number</label>
+            <input id="home" name="home" type="text" placeholder="0137941166" class="form-control">
+            <label id="cell-label" for="cell" class="form">Cellphone Number</label>
+            <input id="cell" name="cell" type="text" placeholder="0001112222" class="form-control">
+            <label id="note-title-label" for="note-title" class="form">Note Title</label>
+            <input id="note-title" name="note-title" type="text" placeholder="My associate from" class="form-control">
+            <label id="note-description-label" for="note-description" class="form">Description</label>
+            <textarea id="note-description" name="note-description" class="form-control" >
+
+            </textarea>
+            <br>
+            <input type="submit" value="Ok" class="btn btn-success">
+        </form>
+    </div>
+</main>
+
+<footer>
+    <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>
