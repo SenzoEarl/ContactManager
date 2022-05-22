@@ -84,18 +84,29 @@ async function searchBy(id, value) {
     res.render('pages/search-results', {contacts: result})
 }
 
-app.post('/contacts/find', async (req, res) => {
+app.post('/contacts/find-by', async (req, res) => {
     if(req.body.name){
-        const result = await Contacts.findOne({
-            where: {
-                "name": req.body.name,
+        let result;
+        try{
+            result = await Contacts.findOne({
+                where: {
+                    "name": req.body.name,
+                }
+            });
+            if(result === null){
+                console.log(req.body.name + " - not found");
+                res.render('pages/find-contact');
             }
-        });
-        res.render('pages/search-results', {result: result})
-        if (result === null) {
-            let message =  req.body.name + "Name not found";
-            res.render('pages/search-results', {message: message});
+        } catch (err) {
+            console.log(err)
+            res.render('pages/find-contact')
         }
+        /*if (result === null) {
+            let message = req.body.name + " Name not found";
+            console.log(message);
+            res.render('pages/find-contact')
+        }*/
+        res.render('pages/search-results', {result: result})
     }else if(req.body.surname){
         let surname = req.body.surname;
         searchBy("surname", surname);
@@ -115,7 +126,7 @@ app.post('/contacts/find', async (req, res) => {
         alert("Error");
     }
 
-    res.render('pages/find-contact');
+    //res.render('pages/find-contact');
 });
 
 app.get('/contacts/:id', (req, res) => {

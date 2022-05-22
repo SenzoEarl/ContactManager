@@ -13,14 +13,9 @@
     <div class="jumbotron">
         <h1>Contacts</h1>
         <p>These are all your search results</p>
-        <%= %>
         <ul>
-            <% Array.from(result).forEach(function(contact) { %>
-                <li> <%= contact.surname %>
-                    <strong><%= contact.name %></strong>
-                    <span> Cell: <%= contact.cell %></span>,
-                    Email: <%= contact.email%>
-                </li>
+            <% Object.keys(result).forEach(function(contact) { %>
+                <li> <%= contact.name%> <span>Cell: <%= contact.cell %></span></li>
             <% }); %>
         </ul>
     </div>
