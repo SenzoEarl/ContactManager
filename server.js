@@ -108,22 +108,91 @@ app.post('/contacts/find-by', async (req, res) => {
         }*/
         res.render('pages/search-results', {result: result})
     }else if(req.body.surname){
-        let surname = req.body.surname;
-        searchBy("surname", surname);
+        try{
+            this.result = await Contacts.findOne({
+                where: {
+                    "surname": req.body.surname,
+                }
+            });
+            if(result === null){
+                console.log(req.body.surname + " - not found");
+                res.render('pages/find-contact');
+            }
+        } catch (err) {
+            console.log(err)
+            res.render('pages/find-contact')
+        }
+        res.render('pages/search-results', {result: this.result})
+
     }else if(req.body.email){
-        let email = req.body.email;
-        searchBy("email", email);
+        try{
+           this.result = await Contacts.findOne({
+                where: {
+                    "name": req.body.name,
+                }
+            });
+            if(result === null){
+                console.log(req.body.name + " - not found");
+                res.render('pages/find-contact');
+            }
+        } catch (err) {
+            console.log(err)
+            res.render('pages/find-contact')
+        }
+        res.render('pages/search-results', {result: this.result})
+
     }else if(req.body.cell){
-        let cell = req.body.cell;
-        searchBy("cell", cell);
+        try{
+            this.result = await Contacts.findOne({
+                where: {
+                    "name": req.body.name,
+                }
+            });
+            if(result === null){
+                console.log(req.body.name + " - not found");
+                res.render('pages/find-contact');
+            }
+        } catch (err) {
+            console.log(err)
+            res.render('pages/find-contact')
+        }
+        res.render('pages/search-results', {result: this.result})
+
     }else if(req.body.note_title){
-        let note_title = req.body.note_title;
-        searchBy("note-title", note_title);
+        try{
+            this.result = await Contacts.findOne({
+                where: {
+                    "name": req.body.name,
+                }
+            });
+            if(result === null){
+                console.log(req.body.name + " - not found");
+                res.render('pages/find-contact');
+            }
+        } catch (err) {
+            console.log(err)
+            res.render('pages/find-contact')
+        }
+        res.render('pages/search-results', {result: this.result})
+
     }else if(req.body.note_description){
-        let note_description = req.body.note_description;
-        searchBy("note-description", note_description);
+        try{
+            this.result = await Contacts.findOne({
+                where: {
+                    "name": req.body.name,
+                }
+            });
+            if(result === null){
+                console.log(req.body.name + " - not found");
+                res.render('pages/find-contact');
+            }
+        } catch (err) {
+            console.log(err)
+            res.render('pages/find-contact')
+        }
+        res.render('pages/search-results', {result: this.result})
     }else {
-        alert("Error");
+            console.log("ID Error");
     }
 
     //res.render('pages/find-contact');
