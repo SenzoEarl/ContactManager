@@ -5,8 +5,6 @@ module.exports = app => {
     router.post("/", contacts.create);
     // Retrieve all contacts
     router.get("/contacts", contacts.findAll);
-    // Retrieve all published contacts
-    router.get("/published", contacts.findAllPublished);
     // Retrieve a single contact with id
     router.get("/:id", contacts.findOne);
     // Update a contact with id

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+    <%- include('../partials/header'); %>
+
+</header>
+
+<main>
+    <div class="jumbotron">
+        <h1>Find Contact</h1>
+        <p>Search for contact using the following different ways</p>
+        <p>Fill in one field and search</p>
+            <form method="post" action="/contacts/find">
+                <input id="name" name="name" type="text" placeholder="Search by Name" class="form-control">
+                <input id="surname" name="surname" type="text" placeholder="Search by Surname" class="form-control">
+                <input id="email" name="email" type="email" placeholder="Search by Email" class="form-control">
+                <input id="cell" name="cell" type="text" placeholder="Search by Cell" class="form-control">
+                <input id="note-title" name="note-title" type="text" placeholder="Search by The title of a note" class="form-control">
+                <input id="note-description" name="note-description" type="text" placeholder="Search by The Contents of a note" class="form-control">
+                <br>
+                <input type="submit" value="Search" class="btn btn-success">
+            </form>
+        <div id="output">
+        </div>
+    </div>
+</main>
+
+<footer>
+    <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>
