@@ -63,7 +63,6 @@ app.post('/contacts/add', (req, res) => {
             message: err.message || "An error occurred while creating contact"
         })
     });
-
     res.render('pages/add-contact', {contact: contact});
 });
 
@@ -120,7 +119,7 @@ app.post('/contacts/find', async (req, res) => {
 });
 
 app.get('/contacts/:id', (req, res) => {
-    res.render('pages/show-contact');
+    res.render('pages/show-contact.ejs');
 });
 
 
