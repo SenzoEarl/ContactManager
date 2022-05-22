@@ -128,11 +128,11 @@ app.post('/contacts/find-by', async (req, res) => {
         try{
            this.result = await Contacts.findOne({
                 where: {
-                    "name": req.body.name,
+                    "email": req.body.email,
                 }
             });
             if(result === null){
-                console.log(req.body.name + " - not found");
+                console.log(req.body.email + " - not found");
                 res.render('pages/find-contact');
             }
         } catch (err) {
@@ -145,11 +145,11 @@ app.post('/contacts/find-by', async (req, res) => {
         try{
             this.result = await Contacts.findOne({
                 where: {
-                    "name": req.body.name,
+                    "cell": req.body.cell,
                 }
             });
             if(result === null){
-                console.log(req.body.name + " - not found");
+                console.log(req.body.cell + " - not found");
                 res.render('pages/find-contact');
             }
         } catch (err) {
@@ -162,11 +162,11 @@ app.post('/contacts/find-by', async (req, res) => {
         try{
             this.result = await Contacts.findOne({
                 where: {
-                    "name": req.body.name,
+                    "note_title": req.body.note_title,
                 }
             });
             if(result === null){
-                console.log(req.body.name + " - not found");
+                console.log(req.body.note_title + " - not found");
                 res.render('pages/find-contact');
             }
         } catch (err) {
@@ -179,11 +179,11 @@ app.post('/contacts/find-by', async (req, res) => {
         try{
             this.result = await Contacts.findOne({
                 where: {
-                    "name": req.body.name,
+                    "note_description": req.body.note_description,
                 }
             });
             if(result === null){
-                console.log(req.body.name + " - not found");
+                console.log(req.body.note_description + " - not found");
                 res.render('pages/find-contact');
             }
         } catch (err) {
@@ -194,8 +194,6 @@ app.post('/contacts/find-by', async (req, res) => {
     }else {
             console.log("ID Error");
     }
-
-    //res.render('pages/find-contact');
 });
 
 app.get('/contacts/:id', (req, res) => {
